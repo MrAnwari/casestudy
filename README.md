@@ -82,5 +82,59 @@ INNER JOIN
 ```
 
 - Upload the joined table back to BigQuery and name it stock_price_2021-2023. We can remove the old tables since we won’t use them anymore.
+- Since the data is only available until 2022, we will use proxy data from tradingview.com for the monthly closing prices of each stock for the 2023 timeframe. Use the following query to add this data to the table:
+
+```sql
+INSERT INTO `mypractice-421606.case_study.stock_price_2021-2023` (timestamp, akra, medc, pgas)
+VALUES
+  ('2023-01-31', 1310, 1395, 1545),
+  ('2023-02-28', 1385, 1150, 1565),
+  ('2023-03-31', 1550, 1010, 1380),
+  ('2023-04-28', 1620, 1010, 1430),
+  ('2023-05-31', 1365, 905, 1430),
+  ('2023-06-27', 1420, 890, 1305),
+  ('2023-07-31', 1385, 1130, 1365),
+  ('2023-08-31', 1400, 1070, 1375),
+  ('2023-09-29', 1545, 1610, 1375),
+  ('2023-10-31', 1490, 1275, 1255),
+  ('2023-11-30', 1435, 1155, 1115),
+  ('2023-12-29', 1475, 1155, 1130);
+```
+- The data is cleaned and ready to be analyzed. Download the data in xlsx format.
+
+2) The second dataset will be processed and cleaned on a spreadsheet since it is a small dataset. The steps are as follows:
+- We only used the data needed for this analysis, which is the oil & gas export values, and removed the rest as it won’t be needed.
+- We noticed that this dataset has three separate sets of data based on the timeframes: 2021, 2022, and 2023. We will put all three datasets into one file but in separate sheets, naming each sheet based on the respective timeframe.
+- The data is in a wide format. Since long data format is better suited for graphing and statistical analysis, We converted it to a long data format using the following formula for easier processing:
+```excel
+=ARRAYFORMULA({
+  FLATTEN(range);
+  FLATTEN(range)
+})
+```
+- For easier analysis, we combined all three datasets into one sheet. Before doing that, we changed the data format in the timeframe column from Month (e.g., January, February, March) to the custom date format: Jan_21, Jan_22, Feb_22, Apr_23, and so on. Next, we combined the data by simply copying and pasting it, as the dataset is small. If you are working with a larger dataset, you can combine it using =QUERY & =IMPORTRANGE, or =ARRAYFORMULA.
+
+## Analyze
+Now that the data is stored appropriately and has been prepared for analysis, start putting it to work.
+
+### Steps taken during this process:
+1. First Analysis
+- Combine the two datasets into one table in spreadsheet.
+- Calculate the monthly percentage growth using this example formula:
+```excel
+=(B2-B3)/B2
+```
+*To calculate the January 2021 growth data, check tradingview.com for the stock prices in January 2021 and refer to the BPS database for the export values in December 2020. Then, use these values to calculate the growth.*
+
+- Calculate the yearly growth, overall growth, and average monthly growth.
+- Calculate the number of 'Green months,' 'Red months,' and 'Unchanged months' for each of the stock price and export values growth using the following formula:
+```excel
+=COUNTIF(range,>0)
+=COUNTIF(range,<0)
+=COUNTIF(range,=0)
+```
+
+2. xxx
+
 
 This repository showcases the process and completion of the case study project for the Google Data Analytics Certificate.
