@@ -2,7 +2,11 @@
 ### Author: Fedri Anwari, B.A.
 ### Created date: 22/05/2024
 
+![Screenshot 2024-05-18 220921](https://github.com/MrAnwari/casestudy/assets/162018078/af031984-0101-4015-9306-30d92e556ead)
+
+
 ## Introduction
+
 This case study aims to explore the comparative dynamics between Indonesia's oil and gas export values and the stock prices of the top three oil and gas companies by market capitalization, which are $AKRA, $MEDC, and $PGAS, over the period from 2021 to 2023. By analyzing this timeframe, we seek to understand how fluctuations in export values impact the market performance of these major companies. Given the significant role of the oil and gas sector in Indonesia's economy, this study will provide valuable insights into the correlation between export performance and stock market valuation, offering a comprehensive view of the sector's financial health and investor sentiment during these years.
 
 In order to answer the business questions, follow the steps of the data analysis process: Ask, Prepare, Process, Analyze, Share, and Act.
