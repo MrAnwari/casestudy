@@ -4,7 +4,7 @@ Case Study: Analyzing the Growth of the Top 3 Oil and Gas Companies in Indonesia
 <h3 align="center">
 Author: Fedri Anwari
 
-Created date: 22/05/2024
+Created date: 21/05/2024
 </h3>
 
 <p align="center">
@@ -45,11 +45,11 @@ Link to the second dataset -> [here](https://www.bps.go.id/en/statistics-table/2
 ## Process
 ### Steps taken during this process:
 
-1) The first dataset will be processed and cleaned on a Google Big Query using SQL since it is a large dataset which contains over 5k rows. 
+#### 1) The first dataset will be processed and cleaned on a Google Big Query using SQL since it is a large dataset which contains over 5k rows. 
 The steps are as follows:
 - Create a dataset on BigQuery and create a table by uploading the three files we have downloaded: akra.csv, medc.csv, and pgas.csv.
 - Open each file, check the schema, and open the preview menu to ensure the data are complete and in the correct format. For the timestamp column, the data should be in DATE format, and the price data should be in Integer format.
-- The dataset provides historical daily price data for each stock from 2001 or their respective IPO dates up to 2022. Since I only require the data from 2021 to 2022 and specifically the closing price data, filter the dataset by executing the following query:
+- The dataset provides historical daily price data for each stock from 2001 or their respective IPO dates up to 2022. Since we only require the data from 2021 to 2022 and specifically the closing price data, filter the dataset by executing the following query:
 
 ```sql
 SELECT  
@@ -116,7 +116,7 @@ VALUES
 ```
 - The data is cleaned and ready to be analyzed. Download the data in xlsx format.
 
-2) The second dataset will be processed and cleaned on a spreadsheet since it is a small dataset. The steps are as follows:
+#### 2) The second dataset will be processed and cleaned on a spreadsheet since it is a small dataset. The steps are as follows:
 - We only used the data needed for this analysis, which is the oil & gas export values, and removed the rest as it won’t be needed.
 - We noticed that this dataset has three separate sets of data based on the timeframes: 2021, 2022, and 2023. We will put all three datasets into one file but in separate sheets, naming each sheet based on the respective timeframe.
 - The data is in a wide format. Since long data format is better suited for graphing and statistical analysis, We converted it to a long data format using the following formula for easier processing:
@@ -132,7 +132,7 @@ VALUES
 Now that the data is stored appropriately and has been prepared for analysis, start putting it to work.
 
 ### Steps taken during this process:
-1. First Analysis
+#### 1. First Analysis
 - Combine the two datasets into one table in spreadsheet.
 - Calculate the monthly percentage growth using this example formula:
 ```excel
@@ -148,7 +148,7 @@ Now that the data is stored appropriately and has been prepared for analysis, st
 =COUNTIF(range,=0)
 ```
 
-2. Second Analysis (Correlation test)
+#### 2. Second Analysis (Correlation test)
 - We will do the test in R (Posit Cloud). Open Posit Cloud.
 - Load the Data
 ```r
@@ -238,5 +238,28 @@ print(plot3)
 Now that we have performed our analysis and gained some insights into the data, it’s time to create visualizations to share the findings. 
 
 ### Steps taken during this process:
-- Create visualization on Excel and Tableau
-- Create a google slide presentations
+- Create visualization on Excel, Tableau, and R.
+Data visualization in Tableau: [here](https://public.tableau.com/views/performance_17162098481030/Sheet4?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link)
+- Create a Google Slide presentation.
+Access the slide [here](https://docs.google.com/presentation/d/1vvWZhtTYMfATB_YkNSHyyWZitbHF9fVzwGTNRpj7Zvo/edit?usp=sharing)
+
+## Act
+Now that we have finished all of the steps, it’s time to act on your findings. Prepare the deliverables, including the conclusion and the top recommendations based on our analysis. 
+### Conclusions, Recommendations, and Limitations:
+- Conclusions:
+   - Rank stocks by overall performance growth: 1) $AKRA 2) $MEDC 3) $PGAS
+   - $AKRA shows the most significant positive correlation with export values (ρ = 0.5482) compared to the other two stocks.
+   - There is a moderate positive correlation between the stock price movements and Indonesia's Oil and Gas Export Values.
+  
+- Recommendations
+  - Indonesia's oil and gas export values can be used as a one of the key indicators to evaluate the future stock price performance of $AKRA, $MEDC, and $PGAS.
+  - $AKRA exhibits promise. Further analysis, including fundamental, technical, and money movement analysis, is needed to equip us for investment decisions.
+
+- Limitations
+  - Correlation doesn’t equal to causation:
+    Many factors beyond those presented in this study influence stock price movements. These include macroeconomics,
+    fundamental & technical analysis, market sentiment, and smart money movement.
+  - The results of this study should be used as supporting data for other analyses rather than as the primary guide.
+  - This study uses a 3-year timeframe (2021-2023). For a more in-depth understanding, it is recommended to extend the study to a 5- or 10-year timeframe.
+
+## References
