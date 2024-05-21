@@ -1,9 +1,19 @@
-# Case Study: Analyzing the Growth of the Top 3 Oil and Gas Companies in Indonesia by Market Cap and Their Relationship with Indonesia's Oil and Gas Export Values (2021-2023)
-### Author: Fedri Anwari, B.A.
-### Created date: 22/05/2024
+<h1 align="center">
+Case Study: Analyzing the Growth of the Top 3 Oil and Gas Companies in Indonesia by Market Cap and Their Relationship with Indonesia's Oil and Gas Export Values (2021-2023)
+</h1>
+<h3 align="center">
+Author: Fedri Anwari
 
-![Screenshot 2024-05-18 220921](https://github.com/MrAnwari/casestudy/assets/162018078/af031984-0101-4015-9306-30d92e556ead)
+Created date: 22/05/2024
+</h3>
 
+<p align="center">
+  <img src="https://github.com/MrAnwari/casestudy/assets/162018078/af031984-0101-4015-9306-30d92e556ead" alt="Screenshot 2024-05-18 220921">
+</p>
+
+<p align="center">
+  <strong><em>Please note that this is a fictional company created for learning purposes.</em></strong>
+</p>
 
 ## Introduction
 
