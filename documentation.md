@@ -148,7 +148,95 @@ Now that the data is stored appropriately and has been prepared for analysis, st
 =COUNTIF(range,=0)
 ```
 
-2. xxx
+2. Second Analysis (Correlation test)
+- We will do the test in R (Posit Cloud). Open Posit Cloud.
+- Load the Data
+```r
+# Install necessary packages if not already installed
+install.packages("readr")  # For reading CSV files
+install.packages("ggplot2")  # For creating visualizations
 
+# Load the libraries
+library(readr)
+library(ggplot2)
 
-This repository showcases the process and completion of the case study project for the Google Data Analytics Certificate.
+# Read the data from the CSV file
+casestudy <- read_csv("path_to_your_downloaded_csv_file.csv")
+
+# View the first few rows of the data to ensure it's loaded correctly
+head(casestudy)
+```
+- Standardize the data
+```r
+casestudy$AKRA_z <- scale(casestudy$AKRA)
+casestudy$MEDC_z <- scale(casestudy$MEDC)
+casestudy$PGAS_z <- scale(casestudy$PGAS)
+casestudy$`Total export (Million US$)_z` <- scale(casestudy$`Total export (Million US$)`)
+
+# View the standardized data
+head(casestudy)
+```
+- Perform the correlation test
+```r
+# Check if data is normally distributed (for deciding on Pearson vs Spearman)
+shapiro.test(casestudy$AKRA)
+shapiro.test(casestudy$`Total export (Million US$)`)
+shapiro.test(casestudy$MEDC)
+shapiro.test(casestudy$PGAS)
+
+# Correlation test
+
+#Since $AKRA is continuous and export_values is discrete, we can use Spearman's rank correlation coefficient
+cor_test1 <- cor.test(casestudy$AKRA_z, casestudy$`Total export (Million US$)_z`, method = "spearman")
+
+#Similar to the previous case, since $MEDC is continuous and export_values is discrete, Spearman's rank correlation coefficient is appropriate
+cor_test2 <- cor.test(casestudy$MEDC_z, casestudy$`Total export (Million US$)_z`, method = "spearman")
+
+#Since both $PGAS and export_values are normally distributed, we can use Pearson's correlation coefficient
+cor_test3 <- cor.test(casestudy$PGAS_z, casestudy$`Total export (Million US$)_z`, method = "pearson")
+
+# Print the results of the correlation test
+print(cor_test1)
+print(cor_test2)
+print(cor_test3)
+```
+- Create Visualization
+```r
+# Create a scatter plot with a trend line
+plot1 <- ggplot(casestudy, aes(x = AKRA_z, y = `Total export (Million US$)_z`)) +
+  geom_point(color = "blue") +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "Correlation between $AKRA stock price and Oil and Gas Export Values",
+       x = "Standardized $AKRA Stock Price",
+       y = "Standardized Export Values") +
+  theme_minimal()
+
+plot2 <- ggplot(casestudy, aes(x = MEDC_z, y = `Total export (Million US$)_z`)) +
+  geom_point(color = "blue") +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "Correlation between $MEDC stock price and Oil and Gas Export Values",
+       x = "Standardized $MEDC Stock Price",
+       y = "Standardized Export Values") +Crea
+  theme_minimal()
+
+plot3 <- ggplot(casestudy, aes(x = PGAS_z, y = `Total export (Million US$)_z`)) +
+  geom_point(color = "blue") +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "Correlation between $PGAS stock price and Oil and Gas Export Values",
+       x = "Standardized $PGAS Stock Price",
+       y = "Standardized Export Values") +
+  theme_minimal()
+
+# Display the plot
+print(plot1)
+print(plot2)
+print(plot3)
+```
+- Save the plot
+
+## Share
+Now that we have performed our analysis and gained some insights into the data, it’s time to create visualizations to share the findings. 
+
+### Steps taken during this process:
+- Create visualization on Excel and Tableau
+- Create a google slide presentations
