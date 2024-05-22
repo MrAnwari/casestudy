@@ -23,7 +23,7 @@ In order to answer the business questions, follow the steps of the data analysis
 
 ## Ask
 Three questions this case study tries to discover:
-1. How did the performance of these 3 stocks compare to Indonesia's Oil & Gas Export Values from Q1 2021 to Q4 2023, and what factors influenced any disparities in performance?
+1. How did the performance of these 3 stocks compare to Indonesia's Oil & Gas Export Values from Q1 2021 to Q4 2023?
 2. What is the degree of correlation between the performance of each of these 3 stocks and Indonesia's Oil & Gas Export Values from Q1 2021 to Q4 2023?
 3. What insights can be derived for future investment strategies from these interactions?
 
@@ -32,15 +32,15 @@ We utilize two public datasets for this analysis. The first dataset presents his
 
 The second dataset provides information on the value of Indonesia's oil exports from 2021 to 2023, and it is sourced from Badan Pusat Statistik (BPS), Indonesia's Central Statistics Agency. BPS is a reputable governmental organization responsible for collecting, processing, and disseminating statistical data in Indonesia. The dataset's credibility and trustworthiness stem from BPS's established reputation for maintaining high standards of data collection, accuracy, and transparency. As a government agency, BPS adheres to rigorous methodologies and protocols in gathering and validating statistical information, ensuring reliability for policymaking, research, and decision-making purposes. Therefore, the dataset from BPS is widely regarded as credible and trusted within both academic and professional circles.
 
-Link to the first dataset [here](https://www.kaggle.com/datasets/7415fcfb5010d225fc1951e426d81c89cf473603d49f46bc6553bd3fe2688b68)
+Link to the first dataset -> [here](https://www.kaggle.com/datasets/7415fcfb5010d225fc1951e426d81c89cf473603d49f46bc6553bd3fe2688b68)
 
 Link to the second dataset -> [here](https://www.bps.go.id/en/statistics-table/2/MTc1MyMy/value-of-export-oil-gas---non-oil-gas--million-us--.html)
 
 ### Steps taken during this process:
 1. Download and store the dataset. For the first dataset, go to the daily folder and download only the akra.csv, medc.csv, and pgas.csv files. For the second dataset, download only the data from 2021 to 2023.
 2. Check how the data is organized. It organized in CSV format.
-3. We have verified the credibility of both datasets and ensured they are not biased. As previously explained, both datasets are trusted and credible sources. Furthermore, for the first dataset obtained from Kaggle, we conducted additional verification by cross-referencing it with the stock price data provided by [tradingview.com](tradingview.com). Through this process, I can confirm that both datasets meet the criteria of being Reliable, Original, Comprehensive, Current, and Cited (ROCCC).
-4. Prepare the data by sorting and filtering it on Google BigQuery using SQL and Google Sheet. 
+3. We have verified the credibility of both datasets and ensured they are not biased. As previously explained, both datasets are trusted and credible sources. Furthermore, for the first dataset obtained from Kaggle, we conducted additional verification by cross-referencing it with the stock price data provided by [tradingview.com](https://www.tradingview.com/). Through this process, we can confirm that both datasets meet the criteria of being Reliable, Original, Comprehensive, Current, and Cited (ROCCC).
+4. Prepare the data by sorting and filtering it on Google BigQuery using SQL and on Google Sheet. 
 
 ## Process
 ### Steps taken during this process:
@@ -114,12 +114,12 @@ VALUES
   ('2023-11-30', 1435, 1155, 1115),
   ('2023-12-29', 1475, 1155, 1130);
 ```
-- The data is cleaned and ready to be analyzed. Download the data in xlsx format.
+- The data is cleaned and ready to be analyzed. Download the data in the xlsx format.
 
 #### 2) The second dataset will be processed and cleaned on a spreadsheet since it is a small dataset. The steps are as follows:
 - We only used the data needed for this analysis, which is the oil & gas export values, and removed the rest as it won’t be needed.
 - We noticed that this dataset has three separate sets of data based on the timeframes: 2021, 2022, and 2023. We will put all three datasets into one file but in separate sheets, naming each sheet based on the respective timeframe.
-- The data is in a wide format. Since long data format is better suited for graphing and statistical analysis, We converted it to a long data format using the following formula for easier processing:
+- The data is in a wide format. Since long data format is better suited for graphing and statistical analysis, we converted it to a long data format using the following formula for easier processing:
 ```excel
 =ARRAYFORMULA({
   FLATTEN(range);
@@ -133,7 +133,7 @@ Now that the data is stored appropriately and has been prepared for analysis, st
 
 ### Steps taken during this process:
 #### 1. First Analysis
-- Combine the two datasets into one table in spreadsheet.
+- Combine the two datasets into one table in a spreadsheet.
 - Calculate the monthly percentage growth using this example formula:
 ```excel
 =(B2-B3)/B2
@@ -247,12 +247,12 @@ Access the slide [here](https://docs.google.com/presentation/d/1vvWZhtTYMfATB_Yk
 Now that we have finished all of the steps, it’s time to act on your findings. Prepare the deliverables, including the conclusion and the top recommendations based on our analysis. 
 ### Conclusions, Recommendations, and Limitations:
 - Conclusions:
-   - Rank stocks by overall performance growth: 1) $AKRA 2) $MEDC 3) $PGAS
+   - Stocks rank by overall performance growth: 1) $AKRA 2) $MEDC 3) $PGAS
    - $AKRA shows the most significant positive correlation with export values (ρ = 0.5482) compared to the other two stocks.
-   - There is a moderate positive correlation between the stock price movements and Indonesia's Oil and Gas Export Values.
+   - There is a moderate positive correlation between the stock price movements and Indonesia's oil and gas export values.
   
 - Recommendations
-  - Indonesia's oil and gas export values can be used as a one of the key indicators to evaluate the future stock price performance of $AKRA, $MEDC, and $PGAS.
+  - Indonesia's oil and gas export data can be used as one of the key indicators to evaluate the future stock price performance of $AKRA, $MEDC, and $PGAS.
   - $AKRA exhibits promise. Further analysis, including fundamental, technical, and money movement analysis, is needed to equip us for investment decisions.
 
 - Limitations
@@ -263,3 +263,9 @@ Now that we have finished all of the steps, it’s time to act on your findings.
   - This study uses a 3-year timeframe (2021-2023). For a more in-depth understanding, it is recommended to extend the study to a 5- or 10-year timeframe.
 
 ## References
+- Badan Pusat Statistik (BPS - Statistics Indonesia). (n.d.). Value of Export Oil & Gas - Non-Oil & Gas (Million US$). Retrieved from https://www.bps.go.id/en/statistics-table/2/MTc1MyMy/value-of-export-oil-gas---non-oil-gas--million-us--.html
+- Kaggle. (n.d.). Stock Market Data. Retrieved from https://www.kaggle.com/datasets/7415fcfb5010d225fc1951e426d81c89cf473603d49f46bc6553bd3fe2688b68
+- Scribbr. (n.d.). Correlation Coefficient: Simple Definition, Formula, and Example. Retrieved from https://www.scribbr.com/statistics/correlation-coefficient/
+- TradingView. (n.d.). Trading and Investing Platform. Retrieved from https://www.tradingview.com
+
+  
