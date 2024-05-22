@@ -23,8 +23,8 @@ In order to answer the business questions, follow the steps of the data analysis
 
 ## Ask
 Three questions this case study tries to discover:
-1. How did the performance of these 3 stocks compare to Indonesia's Oil & Gas Export Values from Q1 2021 to Q4 2023?
-2. What is the degree of correlation between the performance of each of these 3 stocks and Indonesia's Oil & Gas Export Values from Q1 2021 to Q4 2023?
+1. How did the performance of these 3 stocks compare to Indonesia's Oil & Gas Export Values from 2021 to 2023?
+2. What is the degree of correlation between the performance of each of these 3 stocks and Indonesia's Oil & Gas Export Values from 2021 to 2023?
 3. What insights can be derived for future investment strategies from these interactions?
 
 ## Prepare
@@ -38,7 +38,7 @@ Link to the second dataset -> [here](https://www.bps.go.id/en/statistics-table/2
 
 ### Steps taken during this process:
 1. Download and store the dataset. For the first dataset, go to the daily folder and download only the akra.csv, medc.csv, and pgas.csv files. For the second dataset, download only the data from 2021 to 2023.
-2. Check how the data is organized. It organized in CSV format.
+2. Check how the data is organized. It is organized in CSV format.
 3. We have verified the credibility of both datasets and ensured they are not biased. As previously explained, both datasets are trusted and credible sources. Furthermore, for the first dataset obtained from Kaggle, we conducted additional verification by cross-referencing it with the stock price data provided by [tradingview.com](https://www.tradingview.com/). Through this process, we can confirm that both datasets meet the criteria of being Reliable, Original, Comprehensive, Current, and Cited (ROCCC).
 4. Prepare the data by sorting and filtering it on Google BigQuery using SQL and on Google Sheet. 
 
@@ -244,7 +244,7 @@ Data visualization in Tableau: [here](https://public.tableau.com/views/performan
 Access the slide [here](https://docs.google.com/presentation/d/1vvWZhtTYMfATB_YkNSHyyWZitbHF9fVzwGTNRpj7Zvo/edit?usp=sharing)
 
 ## Act
-Now that we have finished all of the steps, it’s time to act on your findings. Prepare the deliverables, including the conclusion and the top recommendations based on our analysis. 
+Now that we have finished all of the steps, it’s time to act on your findings. Prepare the deliverables, including the conclusions and the top recommendations based on our analysis. 
 ### Conclusions, Recommendations, and Limitations:
 - Conclusions:
    - Stocks rank by overall performance growth: 1) $AKRA 2) $MEDC 3) $PGAS
